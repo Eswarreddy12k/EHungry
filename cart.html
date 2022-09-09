@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-cheese"></i>  E-hungry.</a>
+<nav class="navbar">
+    <a class="active" href="index.html">home</a>
+    <a href="index.html#dishes">dishes</a>
+    <a href="index.html#about">about</a>
+    <a href="index.html#menu">menu</a>
+    <a href="index.html#review">review</a>
+    <a href="index.html#order">order</a>
+    
+</nav>
+<div class="icons">
+    <i class="fas fa-bars" id="menu-bars"></i>
+    <i class="fas fa-search" id="search-icon"></i>
+    <a href="#" class="fas fa-heart"></a>
+</div>
+    
+</header>
+
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<script>
+    arrstrr = JSON.parse(localStorage.getItem("astr"));
+    console.log(arrstrr.length);
+    document.write('<div class="box-containerc">');
+        let arrname1=["Apollo Fish","Butter Chicken","Chicken 65","Chicken Nawabi","Chicken Tikka","Dal Makhani","Egg Biryani","Fish Tikka","Garlic Kebab","Green Salad","Mutton Sheek Kebab","Mutton Tikka","Palak Paneer","Tandoori Chicken Masala","Mutton-Biryani","Paneer-Makhani","Veg-Biryani","Chicken-Makhani","Kadai Gosht","Kadai Veg"];
+        var dict1={0:11.99,1:12.99,2:14.99,3:9.99,4:18.99,5:9.99,6:13.99,7:19.99,8:12.99,9:7.99,10:11.99,11:12.99,12:9.99,13:14.99,14:18.99,15:9.99,16:13.99,17:12.99,18:12.99,19:9.99};
+    for (let index = 0; index < arrstrr.length; index++) {
+        const element = arrstrr[index];
+        console.log(element);
+    
+        let str=`<div class="boxc">
+            <img src="images/dish-`+arrstrr[index]+`.png" alt="">
+            <h3>`+arrname1[index]+`</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>`+dict1[index]+`</span>
+            
+            
+        </div>`
+        document.write(str);
+    }
+    document.write('</div');
+    
+</script>
+<div class="bill" >
+    
+    
+    <div class="calc">
+        
+        
+        <script>
+            var dict={1:11.99,2:12.99,3:14.99,4:9.99,5:18.99,6:9.99,7:13.99,8:19.99,9:12.99,10:7.99,11:11.99,12:12.99,13:9.99,14:14.99,15:18.99,16:9.99,17:13.99,18:12.99,19:12.99,20:9.99};
+            let sum=0;
+            let arrname=["null","Apollo Fish","Butter Chicken","Chicken 65","Chicken Nawabi","Chicken Tikka","Dal Makhani","Egg Biryani","Fish Tikka","Garlic Kebab","Green Salad","Mutton Sheek Kebab","Mutton Tikka","Palak Paneer","Tandoori Chicken Masala","Mutton-Biryani","Paneer-Makhani","Veg-Biryani","Chicken-Makhani","Kadai Gosht","Kadai Veg"];
+            if(arrstrr==null){
+                
+                var str3=`<div class="crt">
+            <img src="images/emptycart.png" alt="">
+        </div>
+
+                        <div class="nothing"><h2>Cart Feels So Light...Please Add Something</h2></div>
+                        <div class="hmp">
+                        <a href="index.html" class="btn">Go to homepage</a>
+                        </div>`;
+                        document.write(str3);
+            }
+            else if(arrstrr.length!=0){
+                let clr=`<div class="buttoncart">
+                <a href="" onclick="localStorage.clear()" class="btn">Clear Cart</a>
+                </div>`;
+                document.write(clr);
+                let bilstr=`<div class="billl">
+                <h3>Bill</h3>
+                </div><div class="pay">`;
+                document.write(bilstr);
+                for (let index1 = 0; index1 < arrstrr.length; index1++) {
+                const element1 = arrstrr[index1];
+                let str1=`<h3>`+arrname[element1]+`................  $`+dict[element1]+`</h3>`;
+                document.write(str1);
+                sum=sum+dict[element1];
+                }
+            
+                str2=`<h3>Total Payable  $ `+sum+`</h3><div>`;
+                document.write(str2);
+
+                var chkstr=`<div class="buttoncheckout">
+                <a href="" class="btn">Proceed to Checkout</a>
+                </div>`;
+                document.write(chkstr);
+            }
+            
+            
+        </script>
+        
+    </div>
+</div>
+
+
+
+
+
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">india</a>
+            <a href="#">japan</a>
+            <a href="#">russia</a>
+            <a href="#">USA</a>
+            <a href="#">france</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">dishes</a>
+            <a href="#">about</a>
+            <a href="#">menu</a>
+            <a href="#">reivew</a>
+            <a href="#">order</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+91-99999-99999</a>
+            <a href="#">+1-22222-33333</a>
+            <a href="#">ehungry@support.com</a>
+            <a href="#">ehungryofficial@yahoo.com</a>
+            <a href="#">hyderabad, india - 500075</a>
+        </div>
+
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    
+
+</section>
+
+
+</body>
+
+<div class="loader-container">
+    <img src="images/loader.gif" alt="">
+</div>
+
+<script src="js/cartldr.js"></script>
+
+</html>
